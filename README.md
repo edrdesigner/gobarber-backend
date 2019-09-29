@@ -1,6 +1,3 @@
-#### Pode ler aqui no meu [blog](http://tgmarinho.com)
-
-##### PS. Me ajude a corrigir erros ortográficos, não deu tempo de resvisar o texto!
 
 # Continuando API do GoBarber
 
@@ -15,7 +12,7 @@ Utilizando o [multer](https://github.com/expressjs/multer) para upload de arquiv
 
 Quando precisa enviar imagem para o servidor, tem que ser como `Multpart-data` (Multpart Form) e não `json`.
 
-Instalando o `multer`: 
+Instalando o `multer`:
 
 ```
 yarn add multer
@@ -62,11 +59,9 @@ A rota tem que usar o método post, e o corpo da requisição tem que ser um `mu
 
 Depois adicionar um atributo `file` e adicionar o arquivo nesse atributo.
 
-`upload.single('file')` significa que vou enviar apenas um arquivo dentro da propriedade `file`. 
+`upload.single('file')` significa que vou enviar apenas um arquivo dentro da propriedade `file`.
 
 Essa lib multer permite envio de multiplos arquivos.
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula18](https://github.com/tgmarinho/gobarber/tree/aula18)
 
 ## Aula 19 - Avatar do Usuário
 
@@ -139,7 +134,7 @@ module.exports = {
 E para gerar a tabela files no banco de dados conforme a migration, só executar no terminal:
 
 ```
-yarn sequelize db:migrate  
+yarn sequelize db:migrate
 ```
 
 Depois criar o Model File:
@@ -166,7 +161,7 @@ class File extends Model {
 export default File;
 ```
 
-E inserir o Model File no arquivo database/index.js 
+E inserir o Model File no arquivo database/index.js
 
 
 ```
@@ -256,9 +251,6 @@ E dentro do `database/index.js`, acresento mais um `map`, para poder executar (a
 
 Pronto, agora sim, na hora de salvar o usuário a associação irá ocorrer e o ID que for informado no files estará no users.
 
-Fim: Fim: [https://github.com/tgmarinho/gobarber/tree/aula19](https://github.com/tgmarinho/gobarber/tree/aula19)
-
-
 
 
 ## Aula 20 - Listagem de prestadores de serviços
@@ -272,7 +264,6 @@ Vamos criar a listagem de usuários prestadores de serviço, embora seja a mesma
 - Demos um apelido para File, para se chamar avatar na criação do objeto de retorno da requisição.
 - Permitimos o servidor servir o arquivo de forma estática
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula20](https://github.com/tgmarinho/gobarber/tree/aula20)
 
 ## Aula 21 - Migration e model de agendamento
 
@@ -282,15 +273,12 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula20](https://github.com/tgma
 - Referenciar o model Appointment no models dentro do database/index.js
 
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula21](https://github.com/tgmarinho/gobarber/tree/aula21)
-
 ## Aula 22 - Agendamento de serviço
 
 - Criar a rota de agendamento e o controller
 - O cliente pode selecionar apenas um usuário que seja provider
 - Validar dados de entrada com Yup
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula22](https://github.com/tgmarinho/gobarber/tree/aula22)
 
 ## Aula 23 - Validações de agendamento
 
@@ -303,9 +291,8 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula22](https://github.com/tgma
 	- `parseISO` transforma `"2019-10-01T18:00:00-04:00"` em Objeto data do JS
 	- `startOfHour` despreza os minutos e segundos, e retorna apenas da hora. 18h35 fica apenas 18h.
 	- `isBefore(x,y)` verifica se a data do primeiro parametro é anterior a do segundo parametro
-- Não permitir agendamento duplicado para o o prestador na mesma hora.	
+- Não permitir agendamento duplicado para o o prestador na mesma hora.
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula23](https://github.com/tgmarinho/gobarber/tree/aula23)
 
 ## Aula 24 - Listando agendamentos do usuário
 
@@ -342,7 +329,6 @@ class AppointmentController {
     return res.json(appointments);
   }
 ```
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula24](https://github.com/tgmarinho/gobarber/tree/aula24)
 
 
 ## Aula 25 - Aplicando paginação
@@ -362,7 +348,7 @@ Pronto, como tenho poucos registros, então se eu colocar page: 1, já trás tod
 
 Fim: [https://github.com/tgmarinho/gobarber/tree/aula25](https://github.com/tgmarinho/gobarber/tree/aula25)
 
-## Aula 26 - Listando agenda do prestador 
+## Aula 26 - Listando agenda do prestador
 
 - Mostar no painel do prestador de serviço a listagem de sua agenda
 - Criar uma nova rota para agenda do provider (schedule)
@@ -409,7 +395,6 @@ class ScheduleController {
 
 export default new ScheduleController();
 ```
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula26](https://github.com/tgmarinho/gobarber/tree/aula26)
 
 
 ## Aula 27 - Configurando MongoDB
@@ -473,7 +458,6 @@ class Database {
 
 export default new Database();
 ```
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula27](https://github.com/tgmarinho/gobarber/tree/aula27)
 
 ## Aula 28 - Notificando novos agendamentos
 
@@ -481,7 +465,7 @@ Fim: [https://github.com/tgmarinho/gobarber/tree/aula27](https://github.com/tgma
 
 - Criar os schemas do mongo, semelhante ao model das tabelas.
 
-- MongoDB tem Schema Free, um registro na Collection pode ter um campo e outro registro não ter o campo, isso difere das Tabelas, pois se um registro não tem um certo atributo, ele deve ter o campo com o valor `null`, e no mongo, o campo/registro nem precista existir. Por isso é Schema Free e se chama NOSQL, não tem estrutura. E no mongo também não tem as migrations. 
+- MongoDB tem Schema Free, um registro na Collection pode ter um campo e outro registro não ter o campo, isso difere das Tabelas, pois se um registro não tem um certo atributo, ele deve ter o campo com o valor `null`, e no mongo, o campo/registro nem precista existir. Por isso é Schema Free e se chama NOSQL, não tem estrutura. E no mongo também não tem as migrations.
 - As notificações não tem muita estrutura, ela armazena o ID do usuário, e as notificações não precisam se relacionar, nem precisa haver consultas com essa coleção (entidade).
 
 - Criando o Schema de Notification:
@@ -543,7 +527,6 @@ import Notification from  '../schemas/Notification';
 
 Após criar o agendamento, eu crio uma notificação e armazeno no banco de dados, esse dado não é estruturado, eu lanço diretamente no content o nome do usuário e a data, eu não preciso relacionar Notification com Users e nem Appointments e fazer joins e mais joins de SQL, pois a notificação é do estado atual, que o usuário está, se ele mudar o nome dele, isso não é importante para a notificação nesse momento, e com o mongodb ganhasse bastante performance e facilidade justamente por não ter que escrever Queries SQL gigantes e outra vantagem é que podemos escrever em JS para fazer consultas no mongodb.
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula28](https://github.com/tgmarinho/gobarber/tree/aula28)
 
 ## Aula 29 - Listando notificações do usuário
 
@@ -585,8 +568,6 @@ class NotificationController {
 export default new NotificationController();
 ```
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula29](https://github.com/tgmarinho/gobarber/tree/aula29)
-
 
 ## Aula 30 - Marcar notificações como lidas
 
@@ -621,14 +602,7 @@ Entendendo a query:
 - `req.params.id` = é o id do registro no mongo que foi passado como parametro na query de consulta no frontend
  -  `{ read: true }`  é o valor que eu quero alterar, sempre por default é falso o valor registrado, e agora quero alterar para true, pois foi lida.
  - `{ new:  true }` retorno para o usuário a notificação para dentro de const  notification atualizado
- 
 
-#### Leandro VieiraToday at 2:42 PM
-
-@Thiago Marinho encontrei esse erro também.. realmente está deprecado, e a solução foi utilizar "updateOne" .. é possível passar o ID para filtrar.. ([https://mongoosejs.com/docs/documents.html#updating](https://mongoosejs.com/docs/documents.html#updating "https://mongoosejs.com/docs/documents.html#updating")) em um exemplo de uma aplicação pessoal, utilizei: await post.updateOne(req.params.id, { date: updatedDate, hidden: !req.body.hidden, }); espero que ajude!
-
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula30](https://github.com/tgmarinho/gobarber/tree/aula30)
 
 ## Aula 31 - Cencelamento de agendamento
 
@@ -672,8 +646,6 @@ async delete(req, res) {
 - verifico se a hora appointment é antes da hora atual, se for envio mensagem de error
 - Se não for continua o fluxo setando no canceled_at a data atual.
 - Salvo o appointment e retorno para o usuário
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula31](https://github.com/tgmarinho/gobarber/tree/aula31)
 
 ## Aula 32 - Configurando Nodemailer
 
@@ -744,7 +716,7 @@ class Mail {
 export default new Mail();
 ```
 
-Por fim utilizar no controller: 
+Por fim utilizar no controller:
 
 ```
 ...
@@ -770,13 +742,9 @@ const appointment = await Appointment.findByPk(req.params.id, {
    });
 ```
 
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula32](https://github.com/tgmarinho/gobarber/tree/aula32)
-
-
 ## Aula 33 - Configurando templates de email
 
-- Criar templates de email, com html, css, 
+- Criar templates de email, com html, css,
 - Utilizar template engine: [https://handlebarsjs.com/](https://handlebarsjs.com/)
 - Instalar libs para utilizar o handlebars:
 	- `yarn add express-handlebars nodemailer-express-handlebars`
@@ -944,23 +912,20 @@ import Queue from  './lib/Queue';
 Queue.processQueue();
 ```
 
-Criar um script no package.json para rodar com sucrase uma vez que estamos utilizando o import/export: 
+Criar um script no package.json para rodar com sucrase uma vez que estamos utilizando o import/export:
 
 ```
 "queue":  "nodemon src/queue.js"
 ```
 
 E para executar só chamar: `yarn queue``
- 
+
 Para testar só tentar cancelar um appointment novamente.
-
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula34](https://github.com/tgmarinho/gobarber/tree/aula34)
 
 
 ## Aula 35 - Monitorando falhas na fila
 
-Para poder ouvir os erros do processamento de jobs e obter um log, só alterar o código: 
+Para poder ouvir os erros do processamento de jobs e obter um log, só alterar o código:
 
 ```
 processQueue() {
@@ -978,9 +943,6 @@ handleFailure(job, err) {
 Com isso a cada erro que acontecer podemos ver no log do servidor, posteriomente iremos mostrar de forma mais amigável.
 
 Na documentação do bee-queue tem outros listeners também, de sucesso, etc.
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula35](https://github.com/tgmarinho/gobarber/tree/aula35)
-
 
 ## Aula 36 - Listando horários disponíveis
 
@@ -1071,7 +1033,7 @@ Só vai retornar os horários que não tem appointment marcado e que o valor des
 
 Recebo da requisição o ID do prestador e o dia que o usuário quer ver os horários disponíveis.
 
-Essa data vem como timestamp e formato de string do componente datepicker do frontend. Então é preciso transformar um Number. 
+Essa data vem como timestamp e formato de string do componente datepicker do frontend. Então é preciso transformar um Number.
 
 Depois busco todos agendamentos do provider informado pelo parâmetro da requisição, que não estejam cancelados, e que a data seja entre a primeira e última hora do dia informado.
 
@@ -1096,8 +1058,6 @@ E faço o restante da lógica e retorno para o usuário os horários em um objet
     "available": true
   },
 ```
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula36](https://github.com/tgmarinho/gobarber/tree/aula36)
 
 
 ## Aula 37 - Campos virtuais no agendamento
@@ -1157,28 +1117,25 @@ attributes: ['id', 'date', 'past', 'cancelable'],
 Agora no Insomnia só fazer a buscar e verificar se os campos são listados com `true` ou `false`.
 
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula37](https://github.com/tgmarinho/gobarber/tree/aula37)
-
-
 ## Aula 38 - Tratamento de Exceções
 
 Vamos fazer o tratamento de exceções que ocorrem em produção, na fila de envio de email, query de banco de dados, etc.
 
 Ver logs de erro no servidor é muito complicado, chato e trabalhoso, vamos utilizar uma ferramenta mais amigável com uma boa UI que fica fácil de descobrir o erro, dessa forma não vamos correr atrás do erro, o erro vem até nós.
 
-Tem duas ferramentas para ajudar com isso: 
+Tem duas ferramentas para ajudar com isso:
 
 - [https://www.bugsnag.com/](https://www.bugsnag.com/)
 - [https://sentry.io/welcome/](https://sentry.io/welcome/)
 
-Vamos utilizar o sentry, pois tem uma integração muito boa com nodejs, a vantagem de usar essa ferramenta é que a cada exceção que ocorre na aplicação, vamos receber uma mensagem no sentry.io, um email ou podemos até integrarar com slack para receber mensagem em algum canal do grupo do projeto e até mesmo criar uma issue automática no github. 
+Vamos utilizar o sentry, pois tem uma integração muito boa com nodejs, a vantagem de usar essa ferramenta é que a cada exceção que ocorre na aplicação, vamos receber uma mensagem no sentry.io, um email ou podemos até integrarar com slack para receber mensagem em algum canal do grupo do projeto e até mesmo criar uma issue automática no github.
 
 - Primeiro passo é criar a conta no [https://sentry.io/](https://sentry.io/).
 - Configurar o projeto como Express ou Node, como estou usando express é melhor selecionar o Node.
 - Depois instalar a dependência no projeto:
-``` 
+```
 yarn add @sentry/node
-``` 
+```
 e instalar o [https://www.npmjs.com/package/express-async-errors](https://www.npmjs.com/package/express-async-errors) se faz necessário por que os métodos que são executados com async de dentro do controllers, o express não consegue captar as exceções e enviar para o Sentry, então baixando e configurando essa extensão vai dar certo.
 
 ```
@@ -1253,14 +1210,11 @@ class App {
 export default new App().server;
 ```
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula38](https://github.com/tgmarinho/gobarber/tree/aula38)
-
-
 ## Aula 39 - Variáveis de ambiente
 
 Criar variáveis de ambiente para proteger os dados sensíveis e permitir que variáveis sejam configuradas para cada ambiente que a aplicação está rodando.
 
-Vamos criar um arquivo `.env` e um `.env.example` o .env nunca deverá ser commitado, ele é particular de seu ambiente, o .env.example como nome sugere é um exemplo das variáveis que devem ser preenchidas. 
+Vamos criar um arquivo `.env` e um `.env.example` o .env nunca deverá ser commitado, ele é particular de seu ambiente, o .env.example como nome sugere é um exemplo das variáveis que devem ser preenchidas.
 Elas estão sendo usadas em vários arquivos da aplicação. Os dados que não são sensíveis podem manter no .env.example.
 
 Para utilizar temos que instalar uma lib  [dotenv](https://github.com/motdotla/dotenv) que serve para carregar as variáves de dentro do `.env` para o `nodejs`, no `process.env`.
@@ -1341,7 +1295,3 @@ module.exports = {
 };
 
 ```
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula39](https://github.com/tgmarinho/gobarber/tree/aula39)
-
-
-Chegamos ao final da aplicação =)
