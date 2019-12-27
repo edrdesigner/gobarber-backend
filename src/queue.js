@@ -1,5 +1,4 @@
-require('dotenv/config');
-
-const Queue = require('./lib/Queue');
+import 'dotenv/config';
+import Queue from './lib/Queue';
 
 Queue.processQueue();
