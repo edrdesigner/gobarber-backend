@@ -749,11 +749,6 @@ const appointment = await Appointment.findByPk(req.params.id, {
 
 Basicamenteo foi feito a integração do handlebars no Mail.js para declarar onde estão as pasta de templates e a extensão de arquivo. E no `AppointmentController.js` foi utilizado o template `cancellation.hbs` no envio de email.
 
-Mais detalhes ver o código.
-
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula33](https://github.com/tgmarinho/gobarber/tree/aula33)
-
-
 ## Aula 34 - Configurando fila com Redis
 
 Quando utilizamos rotas que enviam email para o usuário, elas estão demorando um pouco mais para concluir a requisição, pois elas esperam a requisição concluir para depois devolver a resposta para o usuário, e isso demora porque depende de um serviço externo de envio de email, que depende da internet, etc, fazendo com que demore para concluir a requisição.
