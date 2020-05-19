@@ -346,8 +346,6 @@ offset: (page -  1) *  20,
 
 Pronto, como tenho poucos registros, então se eu colocar page: 1, já trás todos os registros e se colocar page: 2 vai trazer apenas um array vazio.
 
-Fim: [https://github.com/tgmarinho/gobarber/tree/aula25](https://github.com/tgmarinho/gobarber/tree/aula25)
-
 ## Aula 26 - Listando agenda do prestador
 
 - Mostar no painel do prestador de serviço a listagem de sua agenda
